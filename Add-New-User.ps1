@@ -12,4 +12,7 @@ $displayName = "$firstName $lastName"
 $emailAddress = "johndoe@example.com"
 
 # Create the new user account
-New-ADUser -Name $displayName -GivenName $firstName -Surname $lastName -EmailAddress $emailAddress -SamAccountName $username -AccountPassword (ConvertTo-SecureString $password -AsPlainText -Force) -Enabled $true
+New-ADUser -Name $displayName -GivenName $firstName -Surname $lastName -EmailAddress $emailAddress -SamAccountName $username -AccountPassword (ConvertTo-SecureString $password -AsPlainText -Force) -Enabled $true -Path "OU=Users,DC=example,DC=com"
+
+# Output a message to confirm the user was created successfully
+Write-Output "User $username was created successfully"
