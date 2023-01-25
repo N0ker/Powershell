@@ -1,15 +1,15 @@
-﻿# Import the Active Directory module
+# Import the Active Directory module
 Import-Module ActiveDirectory
 
-# Set the username and password for the new user
-$username = "JohnDoe"
-$password = "Pa$$w0rd"
+# Prompt for user input
+$firstName = Read-Host "Enter the user's first name"
+$lastName = Read-Host "Enter the user's last name"
+$userName = Read-Host "Enter the user's username"
+$password = Read-Host "Enter the user's password" -AsSecureString
+$domain = Read-Host "Enter the domain this user will belong to"
 
-# Set the name and other details for the new user
-$firstName = "John"
-$lastName = "Doe"
 $displayName = "$firstName $lastName"
-$emailAddress = "johndoe@example.com"
+$emailAddress = "$'firstName + $lastName'@$domain.com"
 
 # Set the names of the Active Directory groups to add the user to
 $groups = @("Sales", "Marketing")
